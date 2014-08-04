@@ -1,0 +1,17 @@
+---
+- name: Package prerequisites for node.js
+  action: apt pkg=python-software-properties state=installed
+  tags: Nodejs
+
+- name: Add the node.js PPA
+  action: command add-apt-repository -y ppa:chris-lea/node.js creates=/etc/apt/sources.list.d/chris-lea-node_js-precise.list
+  tags: Nodejs
+
+- name: Update the apt cache for the new repository
+  action: apt update-cache=yes
+  tags: Nodejs
+
+- name: Install nodejs and npm
+  action: apt pkg=nodejs state=installed
+  tags: Nodejs
+

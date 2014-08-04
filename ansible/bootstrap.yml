@@ -1,0 +1,14 @@
+---
+- hosts: all
+  sudo: true
+  vars:
+    none: yet
+  roles:
+    - base
+    - apache2-php
+    - mongodb
+    - nodejs
+    - yeoman
+    - composer
+    
+

@@ -1,0 +1,21 @@
+---
+- name: Update apt
+  apt: update_cache=yes
+  tags: Base
+  
+- name: Upgrade the distro
+  apt: upgrade=yes
+  tags: Base
+  
+- name: Install System Packages
+  apt: pkg={{ item }} state=latest
+  tags: Base
+  with_items:
+    - curl
+    - wget
+    - vim
+    - git
+    - python
+    - build-essential
+    - software-properties-common
+

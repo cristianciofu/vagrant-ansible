@@ -1,0 +1,17 @@
+---
+- name: Fetch GPG key
+  command: apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+  tags: Mongodb
+
+- name: Add 10 gen repository
+  tags: Mongodb
+  shell:
+    echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/10gen.list creates=/etc/apt/sources.list.d/10gen.list
+
+- name: Install latest mongodb
+  apt: pkg=mongodb-10gen update-cache=yes
+  tags: Mongodb
+
+- name: Run mongo daemon
+  service: name=mongodb state=started
+  tags: Mongodb

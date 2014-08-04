@@ -1,0 +1,32 @@
+---
+- name: Install Apache, php ..
+  apt: pkg={{ item }} state=latest
+  tags: Webserver
+  with_items:
+    - apache2
+    - php5
+    - libapache2-mod-php5
+
+- name: Install apache vhost
+  copy: src=etc/apache2/sites-available/devserver.conf dest=/etc/apache2/sites-available/devserver.conf mode=0755
+  tags: Webserver
+  
+- name: Disable the default site
+  command: a2dissite 000-default
+  tags: Webserver
+  
+- name: Enable our new site
+  command: a2ensite devserver.conf
+  tags: Webserver
+  
+- name: Restart Apache
+  service: name=apache2 state=restarted enabled=yes
+  tags: Webserver
+  
+- name: Install Hello World PHP script
+  copy: src=var/www/index.php dest=/var/www/index.php mode=0755 
+  tags: Webserver
+    
+- name: Make sure script is owned by www-data
+  file: path=/var/www/index.php owner=www-data group=www-data 
+  tags: Webserver

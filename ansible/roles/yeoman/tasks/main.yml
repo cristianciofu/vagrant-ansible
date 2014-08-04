@@ -1,0 +1,12 @@
+---
+- name: Install Yeoman
+  npm: name=yo global=yes
+  tags: Yeoman
+
+- name: Install Grunt
+  npm: name=grunt global=yes
+  tags: Yeoman
+  
+- name: Install Bower
+  npm: name=bower global=yes
+  tags: Yeoman
