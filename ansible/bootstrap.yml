@@ -8,7 +8,8 @@
     - apache2-php
     - mongodb
     - nodejs
-    - yeoman
+    - bower
+    - grunt-cli
     - composer
     
 

@@ -1,0 +1,4 @@
+---
+- name: Install Grunt
+  shell: npm install grunt-cli -g --allow-root
+  tags: Grunt-cli

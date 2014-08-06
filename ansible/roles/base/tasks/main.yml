@@ -17,5 +17,10 @@
     - git
     - python
     - build-essential
+    - default-jre
     - software-properties-common
+    - chrpath
+    - git-core
+    - libssl-dev
+    - libfontconfig1-dev
 
