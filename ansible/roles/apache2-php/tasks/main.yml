@@ -5,6 +5,8 @@
   with_items:
     - apache2
     - php5
+    - php5-mysql
+    - php5-curl
     - libapache2-mod-php5
 
 - name: Install apache vhost

@@ -3,9 +3,14 @@
   sudo: true
   vars:
     none: yet
+    mysql:
+      user: dbuser
+      password: dbpasswd
+      database: testdb
   roles:
     - base
     - apache2-php
+    - mysql
     - mongodb
     - nodejs
     - bower
