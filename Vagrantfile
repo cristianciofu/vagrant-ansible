@@ -1,8 +1,9 @@
 
 Vagrant.configure("2") do |config|
 
-  config.vm.box = "precise64"
-  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  ###
+  # vagrant box add ubuntu/trusty64
+  config.vm.box = "ubuntu/trusty64"
 
   config.vm.network :private_network, ip: "192.168.50.52"
   config.ssh.forward_agent = true
@@ -16,10 +17,6 @@ Vagrant.configure("2") do |config|
     v.customize ["modifyvm", :id, "--ioapic", "on"]
   end
   
-  config.vm.define "vmname" do |db|
-    db.vm.network "private_network", ip: "192.168.50.52"
-  end
-
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "ansible/bootstrap.yml"
     ansible.verbose = "v"

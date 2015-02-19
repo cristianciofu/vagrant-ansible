@@ -11,10 +11,10 @@
     - base
     - apache2-php
     - mysql
-    - mongodb
-    - nodejs
-    - bower
-    - grunt-cli
-    - composer
-    
+    #- mongodb
+    #- nodejs
+    #- bower
+    #- grunt-cli
+    #- composer
+
 
